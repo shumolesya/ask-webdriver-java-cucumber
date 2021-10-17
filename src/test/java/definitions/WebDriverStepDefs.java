@@ -4,6 +4,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import gherkin.ast.ScenarioOutline;
 import org.openqa.selenium.By;
 import support.TestContext;
 
@@ -410,20 +411,23 @@ public class WebDriverStepDefs {
     @Then("username should display {string}")
     public void usernameShouldDisplay(String username) {
         getDriver().findElement(By.xpath("//span[contains(text(),'Username')]")).isDisplayed();
-        assertThat(username.contains("Olesya"));
+        String actualUsername = getDriver().findElement(By.name("username")).getText();
+        assertThat(username.equals(actualUsername));
     }
 
 
     @Then("email should display {string}")
     public void emailShouldDisplay(String email) {
-        getDriver().findElement(By.xpath("//span[contains(text(),'Email')]")).isDisplayed();
-        assertThat(email.contains("shumolesya@yahoo.com"));
+         getDriver().findElement(By.xpath("//span[contains(text(),'Email')]")).isDisplayed();
+         String actualEmail = getDriver().findElement(By.name("email")).getText();
+        assertThat(email.equals(actualEmail));
     }
 
     @Then("password should display {string}")
     public void passwordShouldDisplay(String password) {
         getDriver().findElement(By.xpath("//b[@name='password']")).isDisplayed();
-        assertThat(password.contains("entered"));
+        String actualPassword = getDriver().findElement(By.name("password")).getText();
+        assertThat(password.equals(actualPassword));
 
     }
 
@@ -435,9 +439,10 @@ public class WebDriverStepDefs {
 
 
     @And("Name displays {string}")
-    public void nameDisplays(String nameValue) {
+    public void nameDisplays(String name) {
         assertThat(getDriver().findElement(By.xpath("//b[@name='name']")).isDisplayed());
-        assertThat(nameValue.contains("Olesya"));
+        String actualName = getDriver().findElement(By.xpath("//b[@name='name']")).getText();
+        assertThat(name.equals(actualName));
     }
 }
 

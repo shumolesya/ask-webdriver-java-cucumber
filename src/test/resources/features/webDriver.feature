@@ -127,7 +127,7 @@ Feature: Webdriver methods
         Then username should display "Olesya"
         Then email should display "shumolesya@yahoo.com"
         Then password should display "entered"
-        And I wait for 10 sec
+        And I wait for 3 sec
         Then Agreed To Policy displays "true"
         And I wait for 5 sec
         And Name displays "Olesya Shum"
