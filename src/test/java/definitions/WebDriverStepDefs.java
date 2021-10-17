@@ -434,6 +434,11 @@ public class WebDriverStepDefs {
     }
 
 
+    @And("Name displays {string}")
+    public void nameDisplays(String nameValue) {
+        assertThat(getDriver().findElement(By.xpath("//b[@name='name']")).isDisplayed());
+        assertThat(nameValue.contains("Olesya"));
+    }
 }
 
 

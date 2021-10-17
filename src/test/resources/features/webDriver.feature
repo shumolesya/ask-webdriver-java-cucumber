@@ -130,6 +130,7 @@ Feature: Webdriver methods
         And I wait for 10 sec
         Then Agreed To Policy displays "true"
         And I wait for 5 sec
+        And Name displays "Olesya Shum"
 
 
 
